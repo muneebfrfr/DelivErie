@@ -1,15 +1,18 @@
 // StackNavigator.tsx
 import React from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import SplashScreen from '../screens/SplashScreen';
 
-const Stack = createNativeStackNavigator();
+import { NavigationRoutes } from './NavigationRoutes';
+import SplashScreen from '../screens/auth/SplashScreen';
+import OnboardingScreen from '../screens/auth/OnboardingScreen';
+import { createStackNavigator } from '@react-navigation/stack';
+
+const Stack = createStackNavigator();
 
 const StackNavigator = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Splash" component={SplashScreen} />
-      {/* <Stack.Screen name="Onboarding" component={OnboardingScreen} /> */}
+      <Stack.Screen name={NavigationRoutes.splashScreen} component={SplashScreen} />
+      <Stack.Screen name={NavigationRoutes.onboardingScreen} component={OnboardingScreen} />
       {/* <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="PhoneInputScreen" component={PhoneInputScreen} /> */}
       {/* <Stack.Screen name="OTPScreen" component={OTPScreen} /> */}
